@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Player : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float shootCooldown = 1f;
     [SerializeField] private string collideWithTag = "Untagged";
 
+    [SerializeField] private AnimationCurve velocityCurve = AnimationCurve.Linear(0, 1, 1, 8); // Curve for bullet velocity
+
     private float lastShootTimestamp = Mathf.NegativeInfinity;
+    private float shootButtonHoldTime = 0f;
+    private float maxShootButtonHoldTime = 1f;
 
     void Update()
     {
@@ -32,16 +37,31 @@ public class Player : MonoBehaviour
 
     void UpdateActions()
     {
-        if (    Input.GetKey(KeyCode.Space) 
-            &&  Time.time > lastShootTimestamp + shootCooldown )
+        if (Input.GetKey(KeyCode.Space))
+        {
+            shootButtonHoldTime += Time.deltaTime;
+
+            //if (shootButtonHoldTime >= maxShootButtonHoldTime)
+            //{
+            //    shootButtonHoldTime = maxShootButtonHoldTime;     <------- Shoot while button is held down
+            //    Shoot();
+            //    shootButtonHoldTime = 0f;
+            //}
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space) && Time.time > lastShootTimestamp + shootCooldown)
         {
             Shoot();
+            shootButtonHoldTime = 0f;
         }
     }
 
     void Shoot()
     {
-        Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
+        float holdRatio = Mathf.Clamp01(shootButtonHoldTime / shootCooldown);
+        float bulletVelocity = velocityCurve.Evaluate(holdRatio);
+        Bullet bullet = Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
+        bullet.SetVelocity(bulletVelocity, shootButtonHoldTime >= maxShootButtonHoldTime);
         lastShootTimestamp = Time.time;
     }
 

@@ -8,6 +8,7 @@ public class Invader : MonoBehaviour
     [SerializeField] private Bullet bulletPrefab = null;
     [SerializeField] private Transform shootAt = null;
     [SerializeField] private string collideWithTag = "Player";
+    [SerializeField] private ParticleSystem particles;
 
     internal Action<Invader> onDestroy;
 
@@ -27,12 +28,26 @@ public class Invader : MonoBehaviour
     {
         if(collision.gameObject.tag != collideWithTag) { return; }
 
-        Destroy(gameObject);
-        Destroy(collision.gameObject);
+        //try to cast the object to Bullet
+        Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+
+        bullet.DecreaseBulletHealth();
+        StartCoroutine(DestroyInvaderCoroutine());
     }
 
     public void Shoot()
     {
-        Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
+        Bullet bullet = Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
+        bullet.SetVelocity(-2f, false);
+    }
+
+    private IEnumerator DestroyInvaderCoroutine()
+    {
+        CameraManager.Instance.ShakeCamera();
+        particles.Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+        yield return new WaitForSeconds(2.5f);
+        Destroy(gameObject);
     }
 }
