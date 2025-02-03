@@ -11,5 +11,12 @@ public class Bullet : MonoBehaviour
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.velocity = startVelocity;
+        StartCoroutine(DestroyBullet());
+    }
+
+    private IEnumerator DestroyBullet()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }
