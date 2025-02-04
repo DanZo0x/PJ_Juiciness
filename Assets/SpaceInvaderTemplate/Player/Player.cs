@@ -41,12 +41,12 @@ public class Player : MonoBehaviour
         {
             shootButtonHoldTime += Time.deltaTime;
 
-            //if (shootButtonHoldTime >= maxShootButtonHoldTime)
-            //{
-            //    shootButtonHoldTime = maxShootButtonHoldTime;     <------- Shoot while button is held down
-            //    Shoot();
-            //    shootButtonHoldTime = 0f;
-            //}
+            // if (shootButtonHoldTime >= maxShootButtonHoldTime)
+            // {
+            //     shootButtonHoldTime = maxShootButtonHoldTime; //     <------- Shoot while button is held down
+            //     Shoot();
+            //     shootButtonHoldTime = 0f;
+            // }
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && Time.time > lastShootTimestamp + shootCooldown)
