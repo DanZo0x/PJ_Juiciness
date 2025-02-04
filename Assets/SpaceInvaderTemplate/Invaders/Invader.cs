@@ -10,6 +10,13 @@ public class Invader : MonoBehaviour
     [SerializeField] private string collideWithTag = "Player";
     [SerializeField] private ParticleSystem particles;
 
+    [SerializeField] private GameObject cryZone;
+    [SerializeField] private Sprite normalSprite;
+    [SerializeField] private Sprite crySprite;
+    [SerializeField] private float cryTime = 1.5f;
+
+    private SpriteRenderer _spriteRenderer;
+
     internal Action<Invader> onDestroy;
 
     public Vector2Int GridIndex { get; private set; }
@@ -22,11 +29,17 @@ public class Invader : MonoBehaviour
     public void OnDestroy()
     {
         onDestroy?.Invoke(this);
+        StopAllCoroutines();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag != collideWithTag) { return; }
+        if (collision.gameObject.CompareTag("CryZone"))
+        {
+            StartCoroutine(ToggleInvaderSpriteCoroutine());
+        }
+        
+        if (!collision.gameObject.CompareTag(collideWithTag)) { return; }
 
         //try to cast the object to Bullet
         Bullet bullet = collision.gameObject.GetComponent<Bullet>();
@@ -43,11 +56,39 @@ public class Invader : MonoBehaviour
 
     private IEnumerator DestroyInvaderCoroutine()
     {
-        CameraManager.Instance.ShakeCamera();
-        particles.Play();
+        if (Juice.IsActive())
+        {
+            CameraManager.Instance.ShakeCamera();
+
+            particles.Play();
+            ToggleCryZone(true);
+        }
+
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(2.5f);
+        ToggleCryZone(false);
         Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = normalSprite;
+        ToggleCryZone(false);
+    }
+
+    private void ToggleCryZone(bool isActive)
+    {
+        cryZone.SetActive(isActive);
+    }
+
+    private IEnumerator ToggleInvaderSpriteCoroutine()
+    {
+        _spriteRenderer.sprite = crySprite;
+        
+        yield return new WaitForSecondsRealtime(cryTime);
+        
+        _spriteRenderer.sprite = normalSprite;
     }
 }

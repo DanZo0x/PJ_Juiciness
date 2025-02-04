@@ -18,6 +18,19 @@ public class Bullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         StartCoroutine(DestroyBulletCoroutine());
+
+        if (Juice.IsActive())
+        {
+            return;
+        }
+
+        TrailRenderer trailRenderer = GetComponent<TrailRenderer>();
+        if (trailRenderer == null)
+        {
+            return;
+        }
+
+        trailRenderer.emitting = false;
     }
 
     public void SetVelocity(float velocity, bool isAtMaxVelocity)
