@@ -1,7 +1,10 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using MoreMountains.Feedbacks;
 
 public class Invader : MonoBehaviour
 {
@@ -14,6 +17,9 @@ public class Invader : MonoBehaviour
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite crySprite;
     [SerializeField] private float cryTime = 1.5f;
+
+    [Header("Feedbacks")]
+    public MMF_Player _feedbacks;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -34,10 +40,10 @@ public class Invader : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("CryZone"))
-        {
-            StartCoroutine(ToggleInvaderSpriteCoroutine());
-        }
+        //if (collision.gameObject.CompareTag("CryZone"))
+        //{
+        //    StartCoroutine(ToggleInvaderSpriteCoroutine());
+        //}
         
         if (!collision.gameObject.CompareTag(collideWithTag)) { return; }
 
@@ -52,6 +58,7 @@ public class Invader : MonoBehaviour
     {
         Bullet bullet = Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
         bullet.SetVelocity(-2f, false);
+        _feedbacks.PlayFeedbacks();
     }
 
     private IEnumerator DestroyInvaderCoroutine()
@@ -73,14 +80,15 @@ public class Invader : MonoBehaviour
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _spriteRenderer.sprite = normalSprite;
+        //_spriteRenderer = GetComponent<SpriteRenderer>();
+        //_spriteRenderer.sprite = normalSprite;
         ToggleCryZone(false);
+        
     }
 
     private void ToggleCryZone(bool isActive)
     {
-        cryZone.SetActive(isActive);
+        //cryZone.SetActive(isActive);
     }
 
     private IEnumerator ToggleInvaderSpriteCoroutine()
