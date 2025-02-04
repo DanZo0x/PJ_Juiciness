@@ -43,8 +43,13 @@ public class Invader : MonoBehaviour
 
     private IEnumerator DestroyInvaderCoroutine()
     {
-        CameraManager.Instance.ShakeCamera();
-        particles.Play();
+        if (Juice.IsActive())
+        {
+            CameraManager.Instance.ShakeCamera();
+
+            particles.Play();
+        }
+
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
         yield return new WaitForSeconds(2.5f);
