@@ -14,11 +14,6 @@ public class CameraManager : MonoBehaviour
     {
         Instance = this;
     }
-    private void Start()
-    {
-        // Example: Shake the camera when the game starts
-        //ShakeCamera();
-    }
 
     public void ShakeCamera()
     {
