@@ -19,10 +19,24 @@ public class Player : MonoBehaviour
     private float shootButtonHoldTime = 0f;
     private float maxShootButtonHoldTime = 1f;
 
+    private bool bIsDead = false;
+
     void Update()
     {
+        if (bIsDead)
+        {
+            return;
+        }
+
         UpdateMovement();
         UpdateActions();
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameManager.Instance.PlayGameOver();
+        }
+#endif
     }
 
     void UpdateMovement()
@@ -67,8 +81,12 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag != collideWithTag) { return; }
+        if (collision.gameObject.tag != collideWithTag || bIsDead)
+        {
+            return;
+        }
 
+        bIsDead = true;
         GameManager.Instance.PlayGameOver();
     }
 }

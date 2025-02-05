@@ -14,9 +14,15 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float gameOverHeight;
 
+    [SerializeField] private DissolveImage gameOverImage;
+
+    [SerializeField] private Player player;
+
     void Awake()
     {
         Instance = this;
+        gameOverImage = FindObjectOfType<DissolveImage>();
+        player = FindObjectOfType<Player>();
     }
 
     public Vector3 KeepInBounds(Vector3 position)
@@ -64,14 +70,18 @@ public class GameManager : MonoBehaviour
     }
 
     public bool IsBelowGameOver(float position)
-    {        
+    {
         return position < transform.position.y + (gameOverHeight - bounds.y * 0.5f);
     }
 
     public void PlayGameOver()
     {
-        Debug.Log("Game Over");
-        Application.Quit();
+        float targetZ = gameOverImage.transform.position.z;
+        Vector3 targetLocation = player.transform.position;
+        targetLocation.z = targetZ;
+
+        gameOverImage.transform.position = targetLocation;
+        gameOverImage.TriggerFX();
     }
 
     public void OnDrawGizmos()

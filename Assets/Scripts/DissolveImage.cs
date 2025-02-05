@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DissolveImage : MonoBehaviour
 {
@@ -17,12 +18,18 @@ public class DissolveImage : MonoBehaviour
     [SerializeField]
     private bool invertFX = false;
 
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    private float stopAt = 1.0f;
+
     [Header("Debug")]
     [SerializeField]
     private float noise = 0.0f;
 
     [SerializeField]
     private bool bTriggerFX = false;
+
+    private UnityEvent onFinishDissolve;
 
     private void Start()
     {
@@ -45,9 +52,23 @@ public class DissolveImage : MonoBehaviour
         noise += Time.deltaTime * dissolveSpeed * factor;
         material.SetFloat("_Noise", noise);
 
-        if (noise >= 1.0f)
+        if (invertFX)
         {
-            Destroy(gameObject);
+            if (noise <= stopAt)
+            {
+                onFinishDissolve?.Invoke();
+
+                bTriggerFX = false;
+            }
+        }
+        else
+        {
+            if (noise >= stopAt)
+            {
+                onFinishDissolve?.Invoke();
+
+                Destroy(gameObject);
+            }
         }
     }
 
