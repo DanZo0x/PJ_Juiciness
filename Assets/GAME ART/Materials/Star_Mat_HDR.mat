@@ -52,7 +52,7 @@ Material:
     - _AlphaCutoff: 0.5
     - _ColorMask: 15
     - _EnvironmentReflections: 1
-    - _HDR: 2.51
+    - _HDR: 2.09
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
