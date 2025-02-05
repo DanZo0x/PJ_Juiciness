@@ -76,6 +76,11 @@ public class GameManager : MonoBehaviour
 
     public void PlayGameOver()
     {
+        if (!Juice.IsActive())
+        {
+            return;
+        }
+
         float targetZ = gameOverImage.transform.position.z;
         Vector3 targetLocation = player.transform.position;
         targetLocation.z = targetZ;

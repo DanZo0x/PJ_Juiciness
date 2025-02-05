@@ -55,6 +55,7 @@ Material:
     m_Floats:
     - _Delay: 20
     - _EnableExternalAlpha: 0
+    - _JuiceActive: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Tollereance: 0.3
