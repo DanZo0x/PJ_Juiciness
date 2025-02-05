@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 253728142}
   - component: {fileID: 253728141}
   m_Layer: 0
-  m_Name: PS_Projectile_Trail
+  m_Name: "PS_Projectile_Tra\xEEn\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,8 +483,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.6
-      minScalar: 0.3
+      scalar: 0.4
+      minScalar: 0.1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -15274,7 +15274,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.5698112, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19928,8 +19928,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5b31ac9d469e95d4a9adf7fa9afb5651, type: 2}
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dcf7d9c5d9f40454a83184842575a8d6, type: 2}
+  - {fileID: 2100000, guid: 01ea7c5f9c115464bb30b9109bde3509, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20172,7 +20172,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.9164599, b: 0.33773577, a: 1}
+      maxColor: {r: 1, g: 0.9655353, b: 0.76792455, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -24790,7 +24790,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 906239a791c83704d834c67c6666d03e, type: 2}
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 05b2ccf38deed7a419b39d066b66e484, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25033,7 +25033,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.87573963, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.98706985, b: 0.435849, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -28308,7 +28308,7 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6.981317
+      scalar: 4.363323
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -29593,7 +29593,7 @@ GameObject:
   - component: {fileID: 1895921094}
   - component: {fileID: 1895921093}
   m_Layer: 0
-  m_Name: PS_Projectile_Trail
+  m_Name: "PS_Projectile_Tra\xEEn\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29635,7 +29635,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5c6119414fabf834d8b8f02e6afdee2e, type: 2}
+  - {fileID: 2100000, guid: 72e98910ec84afc4f81d55aa60b0b18f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
