@@ -35,8 +35,15 @@ public class Bullet : MonoBehaviour
 
     public void SetVelocity(float velocity, bool isAtMaxVelocity)
     {
+        if (!Juice.IsActive())
+        {
+            velocity = Mathf.Clamp(velocity, -9.0f, 4.0f);
+            isAtMaxVelocity = false;
+        }
+        
         startVelocity = new Vector3(0, velocity, 0);
         rb.velocity = startVelocity;
+        
         if (isAtMaxVelocity)
         {
             bulletHealth = 2; 
