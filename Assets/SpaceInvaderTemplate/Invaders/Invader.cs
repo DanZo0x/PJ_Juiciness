@@ -67,8 +67,9 @@ public class Invader : MonoBehaviour
         {
             CameraManager.Instance.ShakeCamera();
 
-            DestroyFeedback.PlayFeedbacks();
+            //DestroyFeedback.PlayFeedbacks();
             ToggleCryZone(true);
+            GameManager.Instance.EnemyKilled();
         }
 
         GetComponent<SpriteRenderer>().enabled = false;
