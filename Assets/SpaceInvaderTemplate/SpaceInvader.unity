@@ -1255,13 +1255,13 @@ MonoBehaviour:
   OnEnemyKilled:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2122959665}
-        m_TargetAssemblyTypeName: MoreMountains.Feedbacks.MMF_Player, MoreMountains.Feedbacks
-        m_MethodName: PlayFeedbacks
-        m_Mode: 1
+      - m_Target: {fileID: 1429719010}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1650,6 +1650,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1429719009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207456049921743099, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562361996779542434, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669612239453501066, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+      propertyPath: debugSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 6adfbd200efe1fc4d9dc5d3ef91510e4, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+--- !u!114 &1429719010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8669612239453501066, guid: fd6b6fefc7d52224b8518c9f6c1ca6e8, type: 3}
+  m_PrefabInstance: {fileID: 1429719009}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b808cc28f4fc449b01bd2473b6d945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1544381512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2304,7 +2376,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 805531692}
   - {fileID: 582271456}
-  - {fileID: 879569044}
   - {fileID: 1833304615}
   - {fileID: 1737774462}
   - {fileID: 822596856}
@@ -2316,3 +2387,5 @@ SceneRoots:
   - {fileID: 1262079584}
   - {fileID: 335240955}
   - {fileID: 1544381512}
+  - {fileID: 879569044}
+  - {fileID: 1429719009}
