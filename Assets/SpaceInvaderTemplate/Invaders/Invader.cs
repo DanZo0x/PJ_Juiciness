@@ -89,7 +89,7 @@ public class Invader : MonoBehaviour
 
             //DestroyFeedback.PlayFeedbacks();
             ToggleCryZone(true);
-            GameManager.Instance.EnemyKilled();
+            GameManager.Instance.EnemyKilled(this.gameObject);
         }
 
         int SFXIndex = Random.Range(0, killedSFX.Count - 1);

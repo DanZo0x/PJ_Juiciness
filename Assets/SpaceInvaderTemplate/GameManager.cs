@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using System.Collections.Generic;
+using System.Linq;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     private Bounds Bounds => new Bounds(transform.position, new Vector3(bounds.x, bounds.y, 1000f));
 
     [SerializeField] private float gameOverHeight;
+    [SerializeField] private float bpm = 120f;
 
     private DissolveImage gameOverImage;
 
@@ -28,6 +31,8 @@ public class GameManager : MonoBehaviour
     private int score = 0;
     private bool canAnimateText = true;
 
+    private List<GameObject> bounceObjects = new List<GameObject>();
+
     void Awake()
     {
         Instance = this;
@@ -35,6 +40,13 @@ public class GameManager : MonoBehaviour
         player = FindObjectOfType<Player>();
 
         gameOverImage.onFinishDissolve.AddListener(player.DieLatent);
+    }
+
+    private void Start()
+    {
+        bounceObjects = FindObjectsOfType<Invader>().Select(invader => invader.gameObject).ToList();
+        // add player to bounce objects
+        bounceObjects.Add(player.gameObject);
     }
 
     public Vector3 KeepInBounds(Vector3 position)
@@ -113,8 +125,9 @@ public class GameManager : MonoBehaviour
             transform.position + Vector3.up * (gameOverHeight - bounds.y * 0.5f) + Vector3.right * bounds.x * 0.5f);
     }
 
-    public void EnemyKilled()
+    public void EnemyKilled(GameObject destroyedObject)
     {
+        bounceObjects.Remove(destroyedObject);
         score += 10;
         scoreText.text = score.ToString();
         //OnEnemyKilled.Invoke();
@@ -134,6 +147,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        //call the BounceObjects method on a 120 bpm rythm
+        if (Time.time % (60f / bpm) < 0.1f)
+        {
+            BounceObjects();
+        }
     }
 
     private void ResetTextScaleAndRotationValues()
@@ -141,5 +160,15 @@ public class GameManager : MonoBehaviour
         scoreText.transform.rotation = Quaternion.identity;
         scoreText.transform.localScale = Vector3.one;
         canAnimateText = true;
+    }
+
+    private void BounceObjects()
+    {
+        bounceObjects.ForEach(obj =>
+        {
+            obj.transform.DOScaleY(0.15f, 0.1f).SetLoops(2, LoopType.Yoyo).OnComplete(() => obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f));
+            obj.transform.DORotate(new Vector3(0, 0, 360), 0.5f, RotateMode.FastBeyond360).SetLoops(2, LoopType.Yoyo);
+
+        });
     }
 }
