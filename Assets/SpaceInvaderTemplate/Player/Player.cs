@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MoreMountains.Feedbacks;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +20,11 @@ public class Player : MonoBehaviour
     private float lastShootTimestamp = Mathf.NegativeInfinity;
     private float shootButtonHoldTime = 0f;
     private float maxShootButtonHoldTime = 1f;
+    private bool canPlayEffect = true;
+
+    public MMF_Player ShootFeedback;
+
+    public UnityEvent OnShoot;
 
     private bool bIsDead = false;
 
@@ -54,19 +61,19 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             shootButtonHoldTime += Time.deltaTime;
-
-            // if (shootButtonHoldTime >= maxShootButtonHoldTime)
-            // {
-            //     shootButtonHoldTime = maxShootButtonHoldTime; //     <------- Shoot while button is held down
-            //     Shoot();
-            //     shootButtonHoldTime = 0f;
-            // }
+            if(canPlayEffect && Juice.IsActive()) 
+            {
+                ShootFeedback.PlayFeedbacks();
+                canPlayEffect = false;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Space) && Time.time > lastShootTimestamp + shootCooldown)
         {
             Shoot();
             shootButtonHoldTime = 0f;
+            ShootFeedback.StopFeedbacks();
+            canPlayEffect = true;
         }
     }
 
