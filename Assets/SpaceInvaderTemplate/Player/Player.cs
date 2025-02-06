@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     private bool bIsDead = false;
 
-    void Update()
+    private void Update()
     {
         if (bIsDead)
         {
@@ -34,12 +34,12 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GameManager.Instance.PlayGameOver();
+            Die();
         }
 #endif
     }
 
-    void UpdateMovement()
+    private void UpdateMovement()
     {
         float move = Input.GetAxis("Horizontal");
         if (Mathf.Abs(move) < deadzone) { return; }
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         transform.position = GameManager.Instance.KeepInBounds(transform.position + Vector3.right * delta);
     }
 
-    void UpdateActions()
+    private void UpdateActions()
     {
         if (Input.GetKey(KeyCode.Space))
         {
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void Shoot()
+    private void Shoot()
     {
         float holdRatio = Mathf.Clamp01(shootButtonHoldTime / shootCooldown);
         float bulletVelocity = velocityCurve.Evaluate(holdRatio);
@@ -86,6 +86,11 @@ public class Player : MonoBehaviour
             return;
         }
 
+        Die();
+    }
+
+    public void Die()
+    {
         bIsDead = true;
         GameManager.Instance.PlayGameOver();
     }

@@ -43,7 +43,7 @@ public class DissolveImage : MonoBehaviour
 
     private void Update()
     {
-        if (Juice.IsActive())
+        if (!Juice.IsActive())
         {
             return;
         }

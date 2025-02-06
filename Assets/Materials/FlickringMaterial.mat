@@ -55,10 +55,12 @@ Material:
     m_Floats:
     - _Delay: 20
     - _EnableExternalAlpha: 0
+    - _FlickerSpeed: 2.5
     - _JuiceActive: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Tollereance: 0.3
+    - _SecondDelay: 0.3
+    - _Tollereance: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DefaultColor: {r: 0, g: 0, b: 0, a: 1}
