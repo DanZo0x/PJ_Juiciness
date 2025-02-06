@@ -1,3 +1,4 @@
+using DG.Tweening;
 using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
@@ -74,7 +75,10 @@ public class Invader : MonoBehaviour
 
         if (Juice.IsActive())
         {
-            ShootFeedback.PlayFeedbacks();
+            //ShootFeedback.PlayFeedbacks();
+            //use dotween to make the enemy scale bounce vertically when shooting
+            transform.DOScaleY(0.15f, 0.1f).SetLoops(2, LoopType.Yoyo).OnComplete(() => transform.localScale = new Vector3(0.1f, 0.1f, 0.1f));
+
         }
     }
 
