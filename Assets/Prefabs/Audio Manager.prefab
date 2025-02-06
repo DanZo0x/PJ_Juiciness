@@ -50,7 +50,7 @@ MonoBehaviour:
   sfxAudioSource: {fileID: 6888478955618532605}
   musicSourceObj: {fileID: 7830256711004166419}
   sfxSourceObj: {fileID: 5297979265816083973}
-  debugMusic: {fileID: 0}
+  debugMusic: {fileID: 8300000, guid: 21de39011a5619649b1bb0c8b1b5494d, type: 3}
   debugSfx: {fileID: 8300000, guid: 6adfbd200efe1fc4d9dc5d3ef91510e4, type: 3}
 --- !u!1 &5297979265816083973
 GameObject:

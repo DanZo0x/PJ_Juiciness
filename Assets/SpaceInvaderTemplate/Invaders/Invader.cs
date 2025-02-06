@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class Invader : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class Invader : MonoBehaviour
     [SerializeField] private Sprite normalSprite;
     [SerializeField] private Sprite crySprite;
     [SerializeField] private float cryTime = 1.5f;
+
+    [SerializeField] private AudioClip shootSFX;
+    [SerializeField] private List<AudioClip> killedSFX = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> crySFX = new List<AudioClip>();
 
     [Header("Feedbacks")]
     public MMF_Player ShootFeedback;
@@ -64,6 +69,8 @@ public class Invader : MonoBehaviour
         Bullet targetPrefab = Juice.IsActive() ? bulletPrefab : notJuicyBulletPrefab;
         Bullet bullet = Instantiate(targetPrefab, shootAt.position, Quaternion.identity);
         bullet.SetVelocity(-2f, false);
+        
+        AudioManager.Instance.PlaySFX(shootSFX);
 
         if (Juice.IsActive())
         {
@@ -82,6 +89,10 @@ public class Invader : MonoBehaviour
             GameManager.Instance.EnemyKilled();
         }
 
+        int SFXIndex = Random.Range(0, killedSFX.Count - 1);
+        AudioManager.Instance.PlaySFX(killedSFX[SFXIndex]);
+
+
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
@@ -91,7 +102,12 @@ public class Invader : MonoBehaviour
             Instantiate(goreParticles, transform.position, Quaternion.identity);
         }
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        SFXIndex = Random.Range(0, crySFX.Count - 1);
+        AudioManager.Instance.PlaySFX(crySFX[SFXIndex]);
+
+        yield return new WaitForSeconds(2.0f);
         ToggleCryZone(false);
 
         Destroy(gameObject);
@@ -113,9 +129,9 @@ public class Invader : MonoBehaviour
     private IEnumerator ToggleInvaderSpriteCoroutine()
     {
         _spriteRenderer.sprite = crySprite;
-        
+
         yield return new WaitForSecondsRealtime(cryTime);
-        
+
         _spriteRenderer.sprite = normalSprite;
     }
 }

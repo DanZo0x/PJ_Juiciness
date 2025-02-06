@@ -485,6 +485,17 @@ MonoBehaviour:
   normalSprite: {fileID: 21300000, guid: a5d0609aa91a50c45bfae6a07e379263, type: 3}
   crySprite: {fileID: 21300000, guid: 8b2bac60b47746740b6f839ce827f648, type: 3}
   cryTime: 1.5
+  shootSFX: {fileID: 8300000, guid: ab28c3976ffb20c4bb2c843e84f966fa, type: 3}
+  killedSFX:
+  - {fileID: 8300000, guid: f3603e85d9511934aa48c64fd2de6814, type: 3}
+  - {fileID: 8300000, guid: a7184d0a2285b3b4ea7e5f829c45ff7e, type: 3}
+  - {fileID: 8300000, guid: 9941da7680991d047b48105fb171d346, type: 3}
+  - {fileID: 8300000, guid: ad534f81c65672d47903dc79853bd5ad, type: 3}
+  crySFX:
+  - {fileID: 8300000, guid: c3f8f5a3493eaa54695d8a20b0eb8477, type: 3}
+  - {fileID: 8300000, guid: b6b066023331edb43b7174191182e480, type: 3}
+  - {fileID: 8300000, guid: 4d0a6a8eafb765b429bf021b548045ad, type: 3}
+  - {fileID: 8300000, guid: 6adfbd200efe1fc4d9dc5d3ef91510e4, type: 3}
   ShootFeedback: {fileID: 7600567880896097345}
   DestroyFeedback: {fileID: 5395005497825178275}
 --- !u!61 &1286698669282929100

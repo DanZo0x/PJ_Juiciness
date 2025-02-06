@@ -17,10 +17,6 @@ public class AudioManager : MonoBehaviour
     [Space]
     [Header("Music Audio Clips")]
     [SerializeField] private AudioClip debugMusic;
-    
-    [Space]
-    [Header("Sfx Audio Clips")]
-    [SerializeField] private AudioClip debugSfx;
 
     private void Awake()
     {

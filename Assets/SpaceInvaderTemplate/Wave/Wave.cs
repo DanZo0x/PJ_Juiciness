@@ -28,6 +28,8 @@ public class Wave : MonoBehaviour
     // A cozy time with no alien harm at start of the game. I guess Player shoot first.
     [SerializeField] private float timeBeforeFirstShoot = 5f;
 
+    private Player player;
+
     // Distance moved when moving downward
     [SerializeField] private float downStep = 1f;
 
@@ -59,6 +61,8 @@ public class Wave : MonoBehaviour
         {
             invaderPerRow.Add(new() { id = i, invaders = new() });
         }
+
+        player = FindObjectOfType<Player>();
 
         // Spaw the invader grid
         for (int i = 0; i < columns; i++)
@@ -150,7 +154,7 @@ public class Wave : MonoBehaviour
                     float bottom = GetRowPosition(invaderPerRow[0].id);
                     if (GameManager.Instance.IsBelowGameOver(bottom))
                     {
-                        GameManager.Instance.PlayGameOver();
+                        player.Die();
                     }
 
                     if(distance >= downStep)
