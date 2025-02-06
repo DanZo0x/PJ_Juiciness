@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 258360444334822960, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
@@ -38,15 +38,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ebce1a974ec6e19459b82a76ed82abc9, type: 2}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.49
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9130073
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.08812486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalRotation.w

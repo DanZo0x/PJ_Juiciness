@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float shootCooldown = 1f;
     [SerializeField] private string collideWithTag = "Untagged";
 
+    [SerializeField] private GameObject kawaiParticles = null;
+    [SerializeField] private GameObject goreParticles = null;
+
     [SerializeField] private AnimationCurve velocityCurve = AnimationCurve.Linear(0, 1, 1, 8); // Curve for bullet velocity
 
     private float lastShootTimestamp = Mathf.NegativeInfinity;
@@ -98,7 +101,12 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
+
         bIsDead = true;
+        Instantiate(kawaiParticles, transform.position, Quaternion.identity);
+        Instantiate(goreParticles, transform.position, Quaternion.identity);
         GameManager.Instance.PlayGameOver();
     }
 }

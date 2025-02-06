@@ -8,6 +8,9 @@ using UnityEngine.Events;
 public class Invader : MonoBehaviour
 {
     [SerializeField] private Bullet bulletPrefab = null;
+    [SerializeField] private GameObject kawaiParticles = null;
+    [SerializeField] private GameObject goreParticles = null;
+
     [SerializeField] private Transform shootAt = null;
     [SerializeField] private string collideWithTag = "Player";
 
@@ -74,6 +77,9 @@ public class Invader : MonoBehaviour
 
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+        Instantiate(kawaiParticles, transform.position, Quaternion.identity);
+        Instantiate(goreParticles, transform.position, Quaternion.identity);
+
         yield return new WaitForSeconds(2.5f);
         ToggleCryZone(false);
         Destroy(gameObject);
