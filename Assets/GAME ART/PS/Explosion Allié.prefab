@@ -5880,7 +5880,7 @@ ParticleSystem:
     m_BurstCount: 1
     m_Bursts:
     - serializedVersion: 2
-      time: 0.95
+      time: 1.5
       countCurve:
         serializedVersion: 2
         minMaxState: 0
