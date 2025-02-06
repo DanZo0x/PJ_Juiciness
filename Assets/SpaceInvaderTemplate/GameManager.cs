@@ -6,6 +6,7 @@ using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent OnEnemyKilled;
     public TMPro.TextMeshProUGUI scoreText;
     private int score = 0;
+    private bool canAnimateText = true;
 
     void Awake()
     {
@@ -113,9 +115,17 @@ public class GameManager : MonoBehaviour
 
     public void EnemyKilled()
     {
-        score++;
+        score += 10;
         scoreText.text = score.ToString();
-        OnEnemyKilled.Invoke();
+        //OnEnemyKilled.Invoke();
+
+        //use dotween to make the text shake in rotation and in scale
+        if (canAnimateText)
+        {
+            canAnimateText = false;
+            scoreText.transform.DOPunchRotation(new Vector3(0, 0, 70), 0.5f);
+            scoreText.transform.DOPunchScale(new Vector3(0.3f, 0.3f, 0.3f), 0.7f).OnComplete(() => ResetTextScaleAndRotationValues());
+        }
     }
 
     private void Update()
@@ -124,5 +134,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+    }
+
+    private void ResetTextScaleAndRotationValues()
+    {
+        scoreText.transform.rotation = Quaternion.identity;
+        scoreText.transform.localScale = Vector3.one;
+        canAnimateText = true;
     }
 }
