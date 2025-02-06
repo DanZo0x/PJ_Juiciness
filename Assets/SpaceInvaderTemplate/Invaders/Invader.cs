@@ -14,6 +14,11 @@ public class Invader : MonoBehaviour
 
     [SerializeField] private GameObject kawaiParticles = null;
     [SerializeField] private GameObject goreParticles = null;
+    [SerializeField] private BloodSplash bloodSplash = null;
+    
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    float bloodSplashPercent = 0.35f;
 
     [SerializeField] private Transform shootAt = null;
     [SerializeField] private string collideWithTag = "Player";
@@ -67,6 +72,11 @@ public class Invader : MonoBehaviour
 
     public void Shoot()
     {
+        if (GameManager.Instance.IsGameOver())
+        {
+            return;
+        }
+
         Bullet targetPrefab = Juice.IsActive() ? bulletPrefab : notJuicyBulletPrefab;
         Bullet bullet = Instantiate(targetPrefab, shootAt.position, Quaternion.identity);
         bullet.SetVelocity(-2f, false);
@@ -77,7 +87,6 @@ public class Invader : MonoBehaviour
         {
             //ShootFeedback.PlayFeedbacks();
             transform.DOScaleY(0.15f, 0.1f).SetLoops(2, LoopType.Yoyo).OnComplete(() => transform.localScale = new Vector3(0.1f, 0.1f, 0.1f));
-
         }
     }
 
@@ -95,7 +104,6 @@ public class Invader : MonoBehaviour
         int SFXIndex = Random.Range(0, killedSFX.Count - 1);
         AudioManager.Instance.PlaySFX(killedSFX[SFXIndex]);
 
-
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
@@ -103,6 +111,13 @@ public class Invader : MonoBehaviour
         {
             Instantiate(kawaiParticles, transform.position, Quaternion.identity);
             Instantiate(goreParticles, transform.position, Quaternion.identity);
+
+            float percent = Random.value;
+
+            if(bloodSplashPercent >= percent)
+            {
+                Instantiate(bloodSplash, transform.position, Quaternion.identity);
+            }
         }
 
         yield return new WaitForSeconds(0.5f);

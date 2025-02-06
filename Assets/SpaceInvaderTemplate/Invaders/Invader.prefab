@@ -451,7 +451,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a5d0609aa91a50c45bfae6a07e379263, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -479,6 +479,8 @@ MonoBehaviour:
   notJuicyBulletPrefab: {fileID: 7369880722360228486, guid: ff921a288767dc246bf7dccb29f41d0e, type: 3}
   kawaiParticles: {fileID: 5067904160483708358, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
   goreParticles: {fileID: 3686623995391384843, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
+  bloodSplash: {fileID: 5409037045335984011, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+  bloodSplashPercent: 0.35
   shootAt: {fileID: 8808591723042360307}
   collideWithTag: Player
   cryZone: {fileID: 1343143275153092151}

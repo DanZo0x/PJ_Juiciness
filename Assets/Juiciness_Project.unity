@@ -325,6 +325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3819147987311244436, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5367986702830532405, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
       propertyPath: m_Name
       value: PS_BloodSplash

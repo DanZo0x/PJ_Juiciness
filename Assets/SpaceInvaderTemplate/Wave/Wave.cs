@@ -109,7 +109,10 @@ public class Wave : MonoBehaviour
 
     void UpdateMovement()
     {
-        if(invaders.Count <= 0) { return; }
+        if (invaders.Count <= 0 || GameManager.Instance.IsGameOver())
+        {
+            return;
+        }
 
         // Speed depends on remaining invaders ratio
         float t = 1f - (invaders.Count - 1) / (float)((rows * columns) - 1);

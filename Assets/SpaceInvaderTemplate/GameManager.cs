@@ -33,6 +33,10 @@ public class GameManager : MonoBehaviour
 
     private List<GameObject> bounceObjects = new List<GameObject>();
 
+    private bool bGameOver = false;
+
+    public bool IsGameOver() {return bGameOver;} 
+
     void Awake()
     {
         Instance = this;
@@ -100,6 +104,8 @@ public class GameManager : MonoBehaviour
 
     public void PlayGameOver()
     {
+        bGameOver = true;
+
         if (!Juice.IsActive())
         {
             player.DieLatent();
