@@ -4,14 +4,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using MoreMountains.Feedbacks;
 
 public class Invader : MonoBehaviour
 {
     [SerializeField] private Bullet bulletPrefab = null;
     [SerializeField] private Transform shootAt = null;
     [SerializeField] private string collideWithTag = "Player";
-    [SerializeField] private ParticleSystem particles;
 
     [SerializeField] private GameObject cryZone;
     [SerializeField] private Sprite normalSprite;
@@ -19,7 +17,8 @@ public class Invader : MonoBehaviour
     [SerializeField] private float cryTime = 1.5f;
 
     [Header("Feedbacks")]
-    public MMF_Player _feedbacks;
+    public MMF_Player ShootFeedback;
+    public MMF_Player DestroyFeedback;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -40,11 +39,12 @@ public class Invader : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (collision.gameObject.CompareTag("CryZone"))
-        //{
-        //    StartCoroutine(ToggleInvaderSpriteCoroutine());
-        //}
-        
+        if (collision.gameObject.CompareTag("CryZone"))
+        {
+            if (!Juice.IsActive()) return;
+            StartCoroutine(ToggleInvaderSpriteCoroutine());
+        }
+
         if (!collision.gameObject.CompareTag(collideWithTag)) { return; }
 
         //try to cast the object to Bullet
@@ -58,7 +58,7 @@ public class Invader : MonoBehaviour
     {
         Bullet bullet = Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
         bullet.SetVelocity(-2f, false);
-        _feedbacks.PlayFeedbacks();
+        ShootFeedback.PlayFeedbacks();
     }
 
     private IEnumerator DestroyInvaderCoroutine()
@@ -67,8 +67,9 @@ public class Invader : MonoBehaviour
         {
             CameraManager.Instance.ShakeCamera();
 
-            particles.Play();
+            //DestroyFeedback.PlayFeedbacks();
             ToggleCryZone(true);
+            GameManager.Instance.EnemyKilled();
         }
 
         GetComponent<SpriteRenderer>().enabled = false;
@@ -80,15 +81,15 @@ public class Invader : MonoBehaviour
 
     private void Start()
     {
-        //_spriteRenderer = GetComponent<SpriteRenderer>();
-        //_spriteRenderer.sprite = normalSprite;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.sprite = normalSprite;
         ToggleCryZone(false);
         
     }
 
     private void ToggleCryZone(bool isActive)
     {
-        //cryZone.SetActive(isActive);
+        cryZone.SetActive(isActive);
     }
 
     private IEnumerator ToggleInvaderSpriteCoroutine()

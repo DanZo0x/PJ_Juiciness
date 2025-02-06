@@ -1,6 +1,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
+using TMPro;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
@@ -14,9 +17,18 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float gameOverHeight;
 
+    [SerializeField] private DissolveImage gameOverImage;
+
+    [SerializeField] private Player player;
+    public UnityEvent OnEnemyKilled;
+    public TMPro.TextMeshProUGUI scoreText;
+    private int score = 0;
+
     void Awake()
     {
         Instance = this;
+        gameOverImage = FindObjectOfType<DissolveImage>();
+        player = FindObjectOfType<Player>();
     }
 
     public Vector3 KeepInBounds(Vector3 position)
@@ -64,14 +76,23 @@ public class GameManager : MonoBehaviour
     }
 
     public bool IsBelowGameOver(float position)
-    {        
+    {
         return position < transform.position.y + (gameOverHeight - bounds.y * 0.5f);
     }
 
     public void PlayGameOver()
     {
-        Debug.Log("Game Over");
-        Application.Quit();
+        if (!Juice.IsActive())
+        {
+            return;
+        }
+
+        float targetZ = gameOverImage.transform.position.z;
+        Vector3 targetLocation = player.transform.position;
+        targetLocation.z = targetZ;
+
+        gameOverImage.transform.position = targetLocation;
+        gameOverImage.TriggerFX();
     }
 
     public void OnDrawGizmos()
@@ -83,5 +104,12 @@ public class GameManager : MonoBehaviour
         Gizmos.DrawLine(
             transform.position + Vector3.up * (gameOverHeight - bounds.y * 0.5f) - Vector3.right * bounds.x * 0.5f,
             transform.position + Vector3.up * (gameOverHeight - bounds.y * 0.5f) + Vector3.right * bounds.x * 0.5f);
+    }
+
+    public void EnemyKilled()
+    {
+        score++;
+        scoreText.text = score.ToString();
+        OnEnemyKilled.Invoke();
     }
 }
