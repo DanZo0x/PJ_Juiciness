@@ -170,6 +170,11 @@ public class GameManager : MonoBehaviour
 
     private void BounceObjects()
     {
+        if (!Juice.IsActive())
+        {
+            return;
+        }
+
         bounceObjects.ForEach(obj =>
         {
             obj.transform.DOScaleY(0.15f, 0.1f).SetLoops(2, LoopType.Yoyo).OnComplete(() => obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f));
