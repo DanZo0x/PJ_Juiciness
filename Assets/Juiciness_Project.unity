@@ -122,87 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &416996684
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 258360444334822960, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.5849703
-      objectReference: {fileID: 0}
-    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2224912929020477923, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_Name
-      value: "PS_Etoile_Fum\xE9e"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789632291975782410, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_Name
-      value: Explosion Kawaii Ennemi
-      objectReference: {fileID: 0}
-    - target: {fileID: 8043572349175201533, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ebce1a974ec6e19459b82a76ed82abc9, type: 2}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.9130073
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.08812486
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
 --- !u!1 &763536019
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +277,63 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!1001 &217582348768110313
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.408047
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.529066
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.039249305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1052162935476598537, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5367986702830532405, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
+      propertyPath: m_Name
+      value: PS_BloodSplash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da8aa98ce426f614caa219e2d3af51dc, type: 3}
 --- !u!1001 &711194638308051371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -366,33 +342,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.6285343
-      objectReference: {fileID: 0}
-    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5789632291975782410, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_Name
       value: "Explosion Kawaii Alli\xE9"
       objectReference: {fileID: 0}
-    - target: {fileID: 8043572349175201533, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: df5428a7c5518484d8a34c7936876733, type: 2}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7656953
+      value: -4.66
       objectReference: {fileID: 0}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9130073
+      value: -2.32
       objectReference: {fileID: 0}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.z
@@ -545,6 +505,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25bf5edc2409e6146b43a93939f76e71, type: 3}
+--- !u!1001 &4309682462041233072
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5067904160483708358, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_Name
+      value: Explosion Kawaii Ennemi
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.9130073
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08812486
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7325362756886150721, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8575d72c770050b4383bf26ec4f6c2a1, type: 3}
 --- !u!1001 &7123105184113191106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -555,15 +572,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3686623995391384843, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
       propertyPath: m_Name
-      value: Explosion Gore Ennemi
-      objectReference: {fileID: 0}
-    - target: {fileID: 3686623995391384843, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Explosion Gore
       objectReference: {fileID: 0}
     - target: {fileID: 8143975333790730736, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.33
+      value: -4.67
       objectReference: {fileID: 0}
     - target: {fileID: 8143975333790730736, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
       propertyPath: m_LocalPosition.y
@@ -615,4 +628,5 @@ SceneRoots:
   - {fileID: 2542817880720598186}
   - {fileID: 7123105184113191106}
   - {fileID: 711194638308051371}
-  - {fileID: 416996684}
+  - {fileID: 4309682462041233072}
+  - {fileID: 217582348768110313}
