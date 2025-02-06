@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - CryZone
+  - AudioManager
+  - MusicSource
+  - SfxSource
   layers:
   - Default
   - TransparentFX
