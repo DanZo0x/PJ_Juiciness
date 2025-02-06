@@ -29,7 +29,7 @@ public class DissolveImage : MonoBehaviour
     [SerializeField]
     private bool bTriggerFX = false;
 
-    private UnityEvent onFinishDissolve;
+    public UnityEvent onFinishDissolve;
 
     private void Start()
     {

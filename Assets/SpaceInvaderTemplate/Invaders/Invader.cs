@@ -8,6 +8,8 @@ using UnityEngine.Events;
 public class Invader : MonoBehaviour
 {
     [SerializeField] private Bullet bulletPrefab = null;
+    [SerializeField] private Bullet notJuicyBulletPrefab = null;
+
     [SerializeField] private GameObject kawaiParticles = null;
     [SerializeField] private GameObject goreParticles = null;
 
@@ -59,9 +61,14 @@ public class Invader : MonoBehaviour
 
     public void Shoot()
     {
-        Bullet bullet = Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
+        Bullet targetPrefab = Juice.IsActive() ? bulletPrefab : notJuicyBulletPrefab;
+        Bullet bullet = Instantiate(targetPrefab, shootAt.position, Quaternion.identity);
         bullet.SetVelocity(-2f, false);
-        ShootFeedback.PlayFeedbacks();
+
+        if (Juice.IsActive())
+        {
+            ShootFeedback.PlayFeedbacks();
+        }
     }
 
     private IEnumerator DestroyInvaderCoroutine()
@@ -77,11 +84,16 @@ public class Invader : MonoBehaviour
 
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
-        Instantiate(kawaiParticles, transform.position, Quaternion.identity);
-        Instantiate(goreParticles, transform.position, Quaternion.identity);
+
+        if (Juice.IsActive())
+        {
+            Instantiate(kawaiParticles, transform.position, Quaternion.identity);
+            Instantiate(goreParticles, transform.position, Quaternion.identity);
+        }
 
         yield return new WaitForSeconds(2.5f);
         ToggleCryZone(false);
+
         Destroy(gameObject);
     }
 

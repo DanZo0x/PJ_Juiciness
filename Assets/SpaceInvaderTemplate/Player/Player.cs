@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float speed = 1f;
 
     [SerializeField] private Bullet bulletPrefab = null;
+    [SerializeField] private Bullet notJuicyBulletPrefab = null;
+
     [SerializeField] private Transform shootAt = null;
     [SerializeField] private float shootCooldown = 1f;
     [SerializeField] private string collideWithTag = "Untagged";
@@ -19,6 +21,8 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject goreParticles = null;
 
     [SerializeField] private AnimationCurve velocityCurve = AnimationCurve.Linear(0, 1, 1, 8); // Curve for bullet velocity
+
+    private DissolveImage gameOverImage;
 
     private float lastShootTimestamp = Mathf.NegativeInfinity;
     private float shootButtonHoldTime = 0f;
@@ -84,7 +88,10 @@ public class Player : MonoBehaviour
     {
         float holdRatio = Mathf.Clamp01(shootButtonHoldTime / shootCooldown);
         float bulletVelocity = velocityCurve.Evaluate(holdRatio);
-        Bullet bullet = Instantiate(bulletPrefab, shootAt.position, Quaternion.identity);
+
+        Bullet targetPrefab = Juice.IsActive() ? bulletPrefab : notJuicyBulletPrefab;
+        Bullet bullet = Instantiate(targetPrefab, shootAt.position, Quaternion.identity);
+
         bullet.SetVelocity(bulletVelocity, shootButtonHoldTime >= maxShootButtonHoldTime);
         lastShootTimestamp = Time.time;
     }
@@ -101,12 +108,20 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
         bIsDead = true;
-        Instantiate(kawaiParticles, transform.position, Quaternion.identity);
-        Instantiate(goreParticles, transform.position, Quaternion.identity);
         GameManager.Instance.PlayGameOver();
     }
+
+    public void DieLatent()
+    {
+        if (Juice.IsActive())
+        {
+            Instantiate(kawaiParticles, transform.position, Quaternion.identity);
+            Instantiate(goreParticles, transform.position, Quaternion.identity);
+        }
+
+        GetComponent<SpriteRenderer>().enabled = false;
+    } 
 }

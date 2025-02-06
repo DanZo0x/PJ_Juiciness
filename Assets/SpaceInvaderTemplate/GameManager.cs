@@ -1,9 +1,11 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-100)]
 public class GameManager : MonoBehaviour
@@ -17,9 +19,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float gameOverHeight;
 
-    [SerializeField] private DissolveImage gameOverImage;
+    private DissolveImage gameOverImage;
 
-    [SerializeField] private Player player;
+    private Player player;
     public UnityEvent OnEnemyKilled;
     public TMPro.TextMeshProUGUI scoreText;
     private int score = 0;
@@ -29,6 +31,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         gameOverImage = FindObjectOfType<DissolveImage>();
         player = FindObjectOfType<Player>();
+
+        gameOverImage.onFinishDissolve.AddListener(player.DieLatent);
     }
 
     public Vector3 KeepInBounds(Vector3 position)
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
     {
         if (!Juice.IsActive())
         {
+            player.DieLatent();
             return;
         }
 
@@ -111,5 +116,13 @@ public class GameManager : MonoBehaviour
         score++;
         scoreText.text = score.ToString();
         OnEnemyKilled.Invoke();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
