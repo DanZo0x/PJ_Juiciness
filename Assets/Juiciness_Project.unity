@@ -146,6 +146,10 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2224912929020477923, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
+      propertyPath: m_Name
+      value: "PS_Etoile_Fum\xE9e"
+      objectReference: {fileID: 0}
     - target: {fileID: 5789632291975782410, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_Name
       value: Explosion Kawaii Ennemi
@@ -156,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ebce1a974ec6e19459b82a76ed82abc9, type: 2}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.7656953
+      value: -2.49
       objectReference: {fileID: 0}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.y
@@ -362,10 +366,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.6285343
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242889549341934888, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5789632291975782410, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_Name
       value: "Explosion Kawaii Alli\xE9"
       objectReference: {fileID: 0}
+    - target: {fileID: 8043572349175201533, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: df5428a7c5518484d8a34c7936876733, type: 2}
     - target: {fileID: 8332999078590862221, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.7656953
@@ -539,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686623995391384843, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8143975333790730736, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
       propertyPath: m_LocalPosition.x
