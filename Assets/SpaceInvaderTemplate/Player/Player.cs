@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject kawaiParticles = null;
     [SerializeField] private GameObject goreParticles = null;
 
+    [SerializeField] private AudioClip shootSFX;
     [SerializeField] private AnimationCurve velocityCurve = AnimationCurve.Linear(0, 1, 1, 8); // Curve for bullet velocity
 
     private DissolveImage gameOverImage;
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
 
     private void Shoot()
     {
+        AudioManager.Instance.PlaySFX(shootSFX);
         float holdRatio = Mathf.Clamp01(shootButtonHoldTime / shootCooldown);
         float bulletVelocity = velocityCurve.Evaluate(holdRatio);
 

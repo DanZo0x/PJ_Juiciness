@@ -1175,6 +1175,7 @@ MonoBehaviour:
   collideWithTag: Untagged
   kawaiParticles: {fileID: 5789632291975782410, guid: ddc17b2b47063414981e90f3b62a4786, type: 3}
   goreParticles: {fileID: 3686623995391384843, guid: 24f1d9f3c051f2840831973c8c619d32, type: 3}
+  shootSFX: {fileID: 8300000, guid: eadd2fc830c9eef429de1ed56c5c8c88, type: 3}
   velocityCurve:
     serializedVersion: 2
     m_Curve:
